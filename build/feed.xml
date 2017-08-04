@@ -4,10 +4,10 @@
     <title>Andrew Burkus</title>
     <description>a blog about programming, tech, and such.
 </description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 04 Aug 2017 16:26:39 -0500</pubDate>
-    <lastBuildDate>Fri, 04 Aug 2017 16:26:39 -0500</lastBuildDate>
+    <link>burkus.github.io//</link>
+    <atom:link href="burkus.github.io//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 04 Aug 2017 16:31:29 -0500</pubDate>
+    <lastBuildDate>Fri, 04 Aug 2017 16:31:29 -0500</lastBuildDate>
     <generator>Jekyll v3.4.5</generator>
     
       <item>
@@ -21,8 +21,8 @@
 &lt;p&gt;“The particular features of the Internet may make it difficult for users to clearly differentiate internally and externally stored information”. To make a bit of an intuitive jump here, one could say that a similar series of events could lead an individual to favor or disfavor stories, characters, or figures by simply reading a few pages about them. Given a long enough history of internet browsing, one might even come to regularly form opinions and attachments based on just a few pages of text.&lt;/p&gt;
 </description>
         <pubDate>Thu, 29 Sep 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/sarcasm/2016/09/29/google-search-syndrome.html</link>
-        <guid isPermaLink="true">http://localhost:4000/sarcasm/2016/09/29/google-search-syndrome.html</guid>
+        <link>burkus.github.io//sarcasm/2016/09/29/google-search-syndrome.html</link>
+        <guid isPermaLink="true">burkus.github.io//sarcasm/2016/09/29/google-search-syndrome.html</guid>
         
         
         <category>sarcasm</category>
@@ -66,8 +66,8 @@ all the object instances accordingly.&lt;/p&gt;
 &lt;p&gt;But that’s all off point. Objects aren’t changing, how we handle them is.&lt;/p&gt;
 </description>
         <pubDate>Wed, 02 Sep 2015 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/tech/2015/09/02/functional-programming.html</link>
-        <guid isPermaLink="true">http://localhost:4000/tech/2015/09/02/functional-programming.html</guid>
+        <link>burkus.github.io//tech/2015/09/02/functional-programming.html</link>
+        <guid isPermaLink="true">burkus.github.io//tech/2015/09/02/functional-programming.html</guid>
         
         
         <category>tech</category>
