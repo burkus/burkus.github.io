@@ -1,6 +1,7 @@
 import {RegionQuadTree} from 'quadtreejs';
 import Link from './link.js';
 import Particle from './particle.js';
+import Color from './color.js';
 
 var links;
 var tree;
@@ -21,7 +22,11 @@ function setup() {
             let x = map(noise(i + 5, i + 1), 0, 1, 0, width);
             let y = map(noise(i + 3, i + 2), 0, 1, 0, height);
             let r = map(noise(i), 0, 1, 3, length);
-            particles.push(new Particle(x, y, r));
+            let coinflip = Math.random() * 99 > 50;
+            let c = null;
+            if(coinflip) c = new Color(255, 10, 10);
+            else c = new Color(10, 10, 255);
+            particles.push(new Particle(x, y, r, c));
         }
         return particles;
     }());
@@ -68,6 +73,11 @@ function buildLinks(particle, items) {
     for(var item of items) {
         if(item === particle) continue;
         if(particle.collision(item)) {
+            let r = particle.color.red;
+            let o = null;
+            if(r < 250) {
+                o = new Color(250, 10, 10);
+            } else o = new Color(10, 10, 250);
             var link = new Link(particle, item);
             links.push(link);
         }

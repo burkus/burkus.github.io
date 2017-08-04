@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,15 +73,71 @@
 "use strict";
 
 
-var _quadtreejs = __webpack_require__(7);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-var _link = __webpack_require__(4);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Color = function () {
+  function Color(r, g, b, a) {
+    _classCallCheck(this, Color);
+
+    this.red = r;
+    this.green = g;
+    this.blue = b;
+    this.alpha = a;
+  }
+
+  _createClass(Color, [{
+    key: "green",
+    value: function green(g) {
+      this.green = g;
+    }
+  }, {
+    key: "blue",
+    value: function blue(b) {
+      this.blue = b;
+    }
+  }, {
+    key: "red",
+    value: function red(r) {
+      this.red = r;
+    }
+  }, {
+    key: "colors",
+    value: function colors() {
+      return [this.red, this.green, this.blue];
+    }
+  }]);
+
+  return Color;
+}();
+
+exports.default = Color;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _quadtreejs = __webpack_require__(8);
+
+var _link = __webpack_require__(5);
 
 var _link2 = _interopRequireDefault(_link);
 
-var _particle = __webpack_require__(5);
+var _particle = __webpack_require__(6);
 
 var _particle2 = _interopRequireDefault(_particle);
+
+var _color = __webpack_require__(0);
+
+var _color2 = _interopRequireDefault(_color);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -104,7 +160,10 @@ function setup() {
             var x = map(noise(i + 5, i + 1), 0, 1, 0, width);
             var y = map(noise(i + 3, i + 2), 0, 1, 0, height);
             var r = map(noise(i), 0, 1, 3, length);
-            particles.push(new _particle2.default(x, y, r));
+            var coinflip = Math.random() * 99 > 50;
+            var c = null;
+            if (coinflip) c = new _color2.default(255, 10, 10);else c = new _color2.default(10, 10, 255);
+            particles.push(new _particle2.default(x, y, r, c));
         }
         return particles;
     }();
@@ -223,6 +282,11 @@ function buildLinks(particle, items) {
 
             if (item === particle) continue;
             if (particle.collision(item)) {
+                var r = particle.color.red;
+                var o = null;
+                if (r < 250) {
+                    o = new _color2.default(250, 10, 10);
+                } else o = new _color2.default(10, 10, 250);
                 var link = new _link2.default(particle, item);
                 links.push(link);
             }
@@ -267,10 +331,10 @@ exports.clicked = mouseClicked;
 exports.dragged = mouseDragged;
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)();
+exports = module.exports = __webpack_require__(7)();
 // imports
 
 
@@ -281,7 +345,7 @@ exports.push([module.i, "* { margin: 0; padding: 0; }\n\nbody, html { height:100
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var require;var require;/*! p5.js v0.4.24 April 25, 2016 */
@@ -31048,16 +31112,16 @@ module.exports = p5;
 });
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _config = __webpack_require__(0);
+var _config = __webpack_require__(1);
 
-__webpack_require__(1);
 __webpack_require__(2);
+__webpack_require__(3);
 
 main();
 
@@ -31069,57 +31133,6 @@ function main() {
     window.mouseClicked = _config.clicked;
     window.mouseDragged = _config.dragged;
 }
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Link = function () {
-    function Link(v1, v2, index) {
-        _classCallCheck(this, Link);
-
-        this.v1 = v1;
-        this.v2 = v2;
-        this.display = false;
-        this.index = index;
-    }
-
-    _createClass(Link, [{
-        key: "draw",
-        value: function draw() {
-            push();
-            stroke(0);
-            strokeWeight(4.0);
-            line(this.v1.x, this.v1.y, this.v2.x, this.v2.y);
-            strokeWeight(2.0);
-            stroke(200, 10, 10);
-            line(this.v1.x, this.v1.y, this.v2.x, this.v2.y);
-            pop();
-        }
-    }, {
-        key: "update",
-        value: function update(v1, v2) {
-            if (v1) this.v1 = v1;
-            if (v2) this.v2 = v2;
-            return this;
-        }
-    }]);
-
-    return Link;
-}();
-
-exports.default = Link;
 
 /***/ }),
 /* 5 */
@@ -31134,26 +31147,87 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _color = __webpack_require__(0);
+
+var _color2 = _interopRequireDefault(_color);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var speed = 0.05;
+var Link = function () {
+    function Link(v1, v2, color, outline) {
+        _classCallCheck(this, Link);
+
+        this.v1 = v1;
+        this.v2 = v2;
+        this.color = color ? color : new _color2.default(150, 10, 10);
+        this.outline = outline ? outline : new _color2.default(0, 0, 0);
+    }
+
+    _createClass(Link, [{
+        key: 'draw',
+        value: function draw() {
+            push();
+            stroke.apply(undefined, _toConsumableArray(this.outline.colors()));
+            strokeWeight(8.0);
+            line(this.v1.x, this.v1.y, this.v2.x, this.v2.y);
+            strokeWeight(4.0);
+            stroke.apply(undefined, _toConsumableArray(this.color.colors()));
+            line(this.v1.x, this.v1.y, this.v2.x, this.v2.y);
+            pop();
+        }
+    }]);
+
+    return Link;
+}();
+
+exports.default = Link;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _color = __webpack_require__(0);
+
+var _color2 = _interopRequireDefault(_color);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var speed = 0.07;
 function genSpeed() {
-    var n = noise(random(0, 600));
-    return map(n, 0, 1, -speed, speed);
+    var n = noise(random(0, 600), 1, 3);
+    return map(n, 0.0, 1.0, -speed, speed);
 }
 
 var Particle = function () {
-    function Particle(x, y, r) {
+    function Particle(x, y, r, color) {
         _classCallCheck(this, Particle);
 
         this.position = createVector(x, y);
         this.r = r;
         this.diameter = r * 2;
         this.velocity = createVector(genSpeed(), genSpeed());
+        this.color = color ? color : new _color2.default(0, 0, 0);
     }
 
     _createClass(Particle, [{
-        key: "update",
+        key: 'update',
         value: function update(delta) {
             this.position.add(this.velocity.copy().mult(delta));
 
@@ -31164,36 +31238,36 @@ var Particle = function () {
             }
         }
     }, {
-        key: "collision",
+        key: 'collision',
         value: function collision(other) {
             return dist(this.x, this.y, other.x, other.y) <= this.r + other.r;
         }
     }, {
-        key: "draw",
+        key: 'draw',
         value: function draw() {
             push();
             noFill();
-            stroke(200);
+            stroke.apply(undefined, _toConsumableArray(this.color.colors()));
             ellipse(this.x, this.y, this.diameter, this.diameter);
             pop();
         }
     }, {
-        key: "height",
+        key: 'height',
         get: function get() {
             return this.diameter;
         }
     }, {
-        key: "width",
+        key: 'width',
         get: function get() {
             return this.diameter;
         }
     }, {
-        key: "x",
+        key: 'x',
         get: function get() {
             return this.position.x;
         }
     }, {
-        key: "y",
+        key: 'y',
         get: function get() {
             return this.position.y;
         }
@@ -31205,7 +31279,7 @@ var Particle = function () {
 exports.default = Particle;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 /*
@@ -31261,7 +31335,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 var NW = 0;

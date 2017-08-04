@@ -1,15 +1,17 @@
-let speed = 0.05;
+import Color from './color.js';
+let speed = 0.07;
 function genSpeed() {
-    let n = noise(random(0, 600));
-    return map(n, 0, 1, -speed, speed);
+    let n = noise(random(0, 600), 1, 3);
+    return map(n, 0.0, 1.0, -speed, speed);
 }
 
 class Particle {
-    constructor(x, y, r) {
+    constructor(x, y, r, color) {
         this.position = createVector(x, y);
         this.r = r;
         this.diameter = r * 2;
         this.velocity = createVector(genSpeed(), genSpeed());
+        this.color = color ? color : new Color(0, 0, 0);
     }
 
     get height() {
@@ -51,7 +53,7 @@ class Particle {
     draw() {
         push();
         noFill();
-        stroke(200);
+        stroke(...this.color.colors());
         ellipse(this.x, this.y, this.diameter, this.diameter);
         pop();
     }
