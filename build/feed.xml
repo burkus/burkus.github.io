@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andrew Burkus</title>
+    <description>a blog about programming, tech, and such.
+</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 03 Aug 2017 21:38:27 -0500</pubDate>
+    <lastBuildDate>Thu, 03 Aug 2017 21:38:27 -0500</lastBuildDate>
+    <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>Google Search Syndrome</title>
+        <description>&lt;p&gt;Being that I am 19 years old, I have survived a number of barrages of misinformation and otherworldly bullshit from a series of concerned mothers with too much time on their hands. These barrages were primarily consisting of the negative impacts of Google Search and video games. The instant gratification “generation” (as if it affected younger people only) would be incapable of work that took longer than a few milliseconds. We, the children, were in dire need of “real” work that would enable us to enter the “real” world. Little did these moms realize that Google search was actually enabling us to learn about subjects that would otherwise have been marginalized or placed entirely out of sight. For me the most important of these subjects was Computer Science and programming. Had I been without the all powerful Google Search I couldn’t have made it past that very first bug because I would not have been able to copy and paste the correct code from Stackoverflow into my project. On a more serious note, instant gratification does have negative impacts and I think that we will begin to see this as the hype from tech continues to die down. Computers aren’t doubling in speed every year and no one, thankfully, gives a shit about apps anymore.&lt;/p&gt;
+
+&lt;p&gt;As I’ve entered college I’ve been in contact with a lot of individuals who claim to be fans of various comic book characters, philosophers, and other figures of history. I have found that the majority of these people actually know nothing about the person or character at hand; they have maybe seen a youtube video or read an article that details the bullet points of someone’s career or story. As an example I would give my previous roommate who owned quite a lot of Deadpool merchandise. For those of you who aren’t familiar, Deadpool is a character of the Marvel universe and has seen an incredibly large uptick in fans as popular comedy has deviated towards sarcasm and crudeness. Besides the recent Deadpool film there have been no popular features of him in any medium other than comic books. When I saw the merchandise of my roommate I tried to start a conversation about what his favorite Deadpool comic or series might be, based on the various renderings of his t shirts and posters. Mine is the Evil Deadpool series by Daniel Way, and my roommate doesn’t have a favorite because he’s never read or seen anything about or featuring the character. How odd. I’ve encountered a similar issue where upon detailing the arguments in a friend’s supposedly favorite philosopher’s opus, they turned in rage and disgust at the very figure they once claimed to enjoy.&lt;/p&gt;
+
+&lt;p&gt;So, the issue, at least as I see it, is that tiny scraps of information and summaries of material render their readers experts on the subject. In the case of stories, characters, and philosophy a summary of the work would make its reader a fan. How can one be a fan of something they’ve never experienced or read or seen? It would be as though I claim to love skiing because a friend told me of his skiing adventures. But where is the connection with internet searches? &lt;a href=&quot;http://www.apa.org/pubs/journals/releases/xge-0000070.pdf&quot;&gt;Right here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;“The particular features of the Internet may make it difficult for users to clearly differentiate internally and externally stored information”. To make a bit of an intuitive jump here, one could say that a similar series of events could lead an individual to favor or disfavor stories, characters, or figures by simply reading a few pages about them. Given a long enough history of internet browsing, one might even come to regularly form opinions and attachments based on just a few pages of text.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 29 Sep 2016 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/sarcasm/2016/09/29/google-search-syndrome.html</link>
+        <guid isPermaLink="true">http://localhost:4000/sarcasm/2016/09/29/google-search-syndrome.html</guid>
+        
+        
+        <category>sarcasm</category>
+        
+      </item>
+    
+      <item>
+        <title>Functional Programming</title>
+        <description>&lt;p&gt;Functional Programming is no longer marginalized, and for those who are somewhat
+adventurous, it’s become the go-to smear campaign for anyone who wants to attack
+any other langauge/paradigm/environment. The cycle is, more or less: an article
+about Haskell or Clojure comes out and praises the hell out of the
+functional paradigm. These articles usually go on to compare the OO approach with
+the functional approach, and end up leaving a naive reader with “OO sucks”.
+This is not, well usually not, the writer’s fault. The problem lies with those
+who fail to grasp that the article is highly contextual, and that the real message
+of the dialogue is “in this situation, the functional approach is preferable”.&lt;/p&gt;
+
+&lt;p&gt;What I’ve seen more and more of lately, is programmers who loosely understand what
+a functional approach is bashing the hell out of OO incessantly for no apparent
+reason other than their insecurity. The basics of functional programming are not
+map, reduce and apply. Modern functional languages rely heavily on objects.
+Objects always have been and always will be a great way to represent data. The
+“problem” with OO isn’t actually a problem with OO, it’s a problem with programming
+in general. Mutating variables across multiple namespaces and threads isn’t practical.
+On top of that, the complexity of a project essentially goes through a combinatorial
+boom when you start locking threads.&lt;/p&gt;
+
+&lt;p&gt;These are classic programming problems-the ones you create for yourself. Instead
+of laying mines down on your project, don’t. Don’t mutate variables, don’t lock threads.
+Mutable state is an oxy-moron, as mutating a state creates a new state. The state
+of a program can be thought of as a flipbook, each page representing a unique state.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/eM7uP.gif&quot; alt=&quot;flipbook&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There would still be a “page” object containing the various collections of image
+data to be drawn on top of it. The only difference is that each call to a supposed
+“update” method would return a collection of position/image data, rather than modify
+all the object instances accordingly.&lt;/p&gt;
+
+&lt;p&gt;But that’s all off point. Objects aren’t changing, how we handle them is.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 02 Sep 2015 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/tech/2015/09/02/functional-programming.html</link>
+        <guid isPermaLink="true">http://localhost:4000/tech/2015/09/02/functional-programming.html</guid>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+  </channel>
+</rss>
