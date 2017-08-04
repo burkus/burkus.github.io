@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div id="container">
+        <div class="page-content">
+          <div class="wrapper">
+            {{ content }}
+          </div>
+        </div>
+    </div>
+
+    {% include footer.html %}
+
+    <script src="{{ "/bundle.js" | prepend: site.url }}" charset="utf-8"></script>
+  </body>
+
+</html>
