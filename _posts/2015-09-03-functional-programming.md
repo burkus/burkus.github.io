@@ -29,7 +29,7 @@ of laying mines down on your project, don't. Don't mutate variables, don't lock 
 Mutable state is an oxy-moron, as mutating a state creates a new state. The state
 of a program can be thought of as a flipbook, each page representing a unique state.
 
-![flipbook](http://i.imgur.com/eM7uP.gif)
+![flipbook](https://i.imgur.com/eM7uP.gif)
 
 There would still be a "page" object containing the various collections of image
 data to be drawn on top of it. The only difference is that each call to a supposed
