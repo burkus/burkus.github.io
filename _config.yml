@@ -4,7 +4,7 @@ email: andrew@burkus.xyz
 description: > # this means to ignore newlines until "baseurl:"
   a blog about programming, tech, and such.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://burkus.xyz:80" # the base hostname & protocol for your site
+url: "burkus.github.io/" # the base hostname & protocol for your site
 twitter_username: AndrewBurkus
 github_username:  andrew-burkus
 
